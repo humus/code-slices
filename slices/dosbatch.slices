@@ -1,0 +1,5 @@
+Group pending
+Slice jrebel-noverify
+set JAVA_OPTIONS=-noverify -javaagent:C:\java\jrebel\jrebel.jar
+Slice java_debug_weblogic
+set JAVA_DEBUG=-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,address=%DEBUG_PORT%,server=y,suspend=n -Djava.compiler=NONE
