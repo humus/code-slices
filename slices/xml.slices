@@ -55,10 +55,10 @@ Slice jrebel-plugin
   </plugin>
 Slice mvn-mockito
   <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-all</artifactId>
-      <version>1.9.5</version>
-      <scope>test</scope>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-all</artifactId>
+    <version>1.9.5</version>
+    <scope>test</scope>
   </dependency>
 Slice mvn-springtest
   <dependency>
@@ -67,3 +67,27 @@ Slice mvn-springtest
     <version>3.0.5.RELEASE</version>
     <scope>test</scope>
   </dependency>
+Slice mvn-exclude-jcl
+  <exclusions>
+    <exclusion>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+    </exclusion>
+  </exclusions>
+Group web.xml
+Slice dispatch-servlet
+  <servlet>
+    <servlet-name>Dispatcher Servlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+Slice context-loader-listener
+  <listener>
+    <listener-class>
+      org.springframework.web.context.ContextLoaderListener
+    </listener-class>
+  </listener>

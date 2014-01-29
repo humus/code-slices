@@ -1,0 +1,11 @@
+Group default
+Slice read a file
+fun! s:get_lines_from_file(file_name) "{{{
+  let lines = []
+  if filereadable(a:file_name)
+    let lines = readfile(a:file_name)
+  endif
+  return lines
+endfunction "}}}
+Slice globpath
+  let files = split(globpath('.', "slices/*"), '\n')
