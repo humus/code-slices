@@ -9,3 +9,7 @@ fun! s:get_lines_from_file(file_name) "{{{
 endfunction "}}}
 Slice globpath
   let files = split(globpath('.', "slices/*"), '\n')
+Group pending
+FluentSlice save-rest-view
+  let view = winsaveview()
+  call winrestview(view)

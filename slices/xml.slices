@@ -63,7 +63,7 @@ Slice mvn-mockito
 Slice mvn-springtest
   <dependency>
     <groupId>org.springframework</groupId>
-    <artifactId>spring-context</artifactId>
+    <artifactId>spring-test</artifactId>
     <version>3.0.5.RELEASE</version>
     <scope>test</scope>
   </dependency>
@@ -74,6 +74,18 @@ Slice mvn-exclude-jcl
       <artifactId>commons-logging</artifactId>
     </exclusion>
   </exclusions>
+Slice mvn-powermock-junit4
+  <dependency>
+    <groupId>org.powermock</groupId>
+    <artifactId>powermock-module-junit4</artifactId>
+    <version>1.5.3</version>
+  </dependency>
+Slice powermok-api-mockito
+  <dependency>
+    <groupId>org.powermock</groupId>
+    <artifactId>powermock-api-mockito</artifactId>
+    <version>1.5.3</version>
+  </dependency>
 Group web.xml
 Slice dispatch-servlet
   <servlet>
