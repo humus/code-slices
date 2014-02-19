@@ -1,0 +1,16 @@
+Group checking conditions
+Slice if the file exists
+  if [ -f $file_variable ]; then
+      #
+  fi
+Slice if there are arguments
+  if [ "$#" == "0" ]; then
+      #
+  fi
+Group custom utility sentences
+Slice Save file to a variable
+  lines=$(< file)
+Slice export function
+  export -f function_name
+Slice use exported function in subshell
+  xargs -n 1 -i bash -c 'function_name {}'
