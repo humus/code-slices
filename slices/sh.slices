@@ -7,6 +7,14 @@ Slice if there are arguments
   if [ "$#" == "0" ]; then
       #
   fi
+Slice if string is zero length
+  if [ -z "$a_variable"]; then
+    #
+  fi
+Slice if string is not zero length
+  if [ -n "$a_variable"]; then
+    #
+  fi
 Group custom utility sentences
 Slice Save file to a variable
   lines=$(< file)

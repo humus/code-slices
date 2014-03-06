@@ -64,7 +64,7 @@ Slice mvn-springtest
   <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-test</artifactId>
-    <version>3.0.5.RELEASE</version>
+    <version>3.2.8.RELEASE</version>
     <scope>test</scope>
   </dependency>
 Slice mvn-exclude-jcl
@@ -86,6 +86,18 @@ Slice powermok-api-mockito
     <artifactId>powermock-api-mockito</artifactId>
     <version>1.5.3</version>
   </dependency>
+Slice postgres-type-3
+<dependency>
+  <groupId>postgresql</groupId>
+  <artifactId>postgresql</artifactId>
+  <version>9.1-901.jdbc3</version>
+</dependency>
+Slice hibernate-3.6
+  <dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-entitymanager</artifactId>
+    <version>3.6.10.Final</version>
+  </dependency>
 Group web.xml
 Slice dispatch-servlet
   <servlet>
@@ -103,3 +115,39 @@ Slice context-loader-listener
       org.springframework.web.context.ContextLoaderListener
     </listener-class>
   </listener>
+Group persistencexml
+Slice persistence.xml
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+      version="2.0">
+<!-- referencia: http://docs.jboss.org/hibernate/stable/entitymanager/reference/en/html/configuration.html -->
+</persistence>
+FluentSlice persistence-unit
+<persistence-unit name="persistenceunit" transaction-type="RESOUCE_LOCAL">
+   <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <jta-data-source></jta-data-source>
+    <non-jta-data-source></non-jta-data-source>
+    <mapping-file></mapping-file>
+    <jar-file></jar-file>
+    <class></class>
+    <exclude-unlisted-classes/>
+    <shared-cache-mode></shared-cache-mode><!-- ALL,NONE,ENABLE_SELECTIVE,DISABLE_SELECTIVE default:ENABLE_SELECTIVE -->
+    <validation-mode></validation-mode> <!-- AUTO|CALLBACK|NONE default/preferred: CALLBACK-->
+    <properties>
+    </properties>
+</persistence-unit>
+Slice properties
+  <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+  <property name="hibernate.hbm2ddl.auto" value=""/>
+  <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+  <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/"/>
+  <property name="javax.persistence.jdbc.user" value=""/>
+  <property name="javax.persistence.jdbc.password" value=""/>
+Group pending
+Slice spring-beans
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+</beans>
