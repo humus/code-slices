@@ -1,4 +1,52 @@
 Group maven
+FluentSlice skeleton
+<dependencyManagement>
+  <dependencies>
+    <!-- <dependency></dependency> -->
+  </dependencies>
+</dependencyManagement>
+<build>
+  <pluginManagement>
+    <plugins>
+      <!--<plugin></plugin>-->
+    </plugins>
+  </pluginManagement>
+  <plugins>
+    <!--<plugin></plugin>-->
+  </plugins>
+  <finalName>app</finalName>
+</build>
+Slice profiles
+<profiles>
+  <profile>
+    <id>profile-id</id>
+    <activation>
+      <property>
+        <name></name>
+        <value></value>
+        <build>
+          <plugins></plugins>
+        </build>
+      </property>
+    </activation>
+  </profile>
+</profiles>
+FluentSlice plugin-conf
+<inherited></inherited><!-- true/false -->
+<artifactId></artifactId>
+<executions>
+  <execution>
+    <id></id>
+    <goals>
+      <goal></goal>
+    </goals>
+    <phase></phase>
+    <configuration>
+      <prop>val</prop>
+      <prop></prop>
+    </configuration>
+  </execution>
+</executions>
 Slice compiler-plugin
   <plugin>
     <groupId>org.apache.maven.plugins</groupId>
@@ -60,6 +108,12 @@ Slice mvn-mockito
     <version>1.9.5</version>
     <scope>test</scope>
   </dependency>
+Slice mvn-springmvc
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-mvc</artifactId>
+    <version>3.2.8.RELEASE</version>
+  </dependency>
 Slice mvn-springtest
   <dependency>
     <groupId>org.springframework</groupId>
@@ -86,6 +140,17 @@ Slice powermok-api-mockito
     <artifactId>powermock-api-mockito</artifactId>
     <version>1.5.3</version>
   </dependency>
+FluentSlice logging
+  <dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-log4j12</artifactId>
+    <version>1.7.1</version>
+  </dependency>
+  <dependenc>
+    <groupId>org.slf4j</groupId>
+    <artifactId>jcl-over-slf4j</artifactId>
+    <version>1.7.3</version>
+  </dependenc>
 Slice postgres-type-3
 <dependency>
   <groupId>postgresql</groupId>
@@ -99,6 +164,13 @@ Slice hibernate-3.6
     <version>3.6.10.Final</version>
   </dependency>
 Group web.xml
+FluentSlice webxml-minimal
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+  version="2.5">
+  <display-name></display-name>
+</web-app>
 Slice dispatch-servlet
   <servlet>
     <servlet-name>Dispatcher Servlet</servlet-name>
