@@ -146,11 +146,11 @@ FluentSlice logging
     <artifactId>slf4j-log4j12</artifactId>
     <version>1.7.1</version>
   </dependency>
-  <dependenc>
+  <dependency>
     <groupId>org.slf4j</groupId>
     <artifactId>jcl-over-slf4j</artifactId>
     <version>1.7.3</version>
-  </dependenc>
+  </dependency>
 Slice postgres-type-3
 <dependency>
   <groupId>postgresql</groupId>
@@ -163,6 +163,18 @@ Slice hibernate-3.6
     <artifactId>hibernate-entitymanager</artifactId>
     <version>3.6.10.Final</version>
   </dependency>
+Slice tomcat-6-plugin
+<plugin>
+  <groupId>org.apache.tomcat.maven</groupId>
+  <artifactId>tomcat6-maven-plugin</artifactId>
+  <version>2.2</version>
+</plugin>
+Slice tomcat-7-plugin
+<plugin>
+  <groupId>org.apache.tomcat.maven</groupId>
+  <artifactId>tomcat7-maven-plugin</artifactId>
+  <version>2.2</version>
+</plugin>
 Group web.xml
 FluentSlice webxml-minimal
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
@@ -171,22 +183,22 @@ FluentSlice webxml-minimal
   version="2.5">
   <display-name></display-name>
 </web-app>
-Slice dispatch-servlet
-  <servlet>
-    <servlet-name>Dispatcher Servlet</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
-    <url-pattern>/</url-pattern>
-  </servlet-mapping>
 Slice context-loader-listener
   <listener>
     <listener-class>
       org.springframework.web.context.ContextLoaderListener
     </listener-class>
   </listener>
+Slice dispatch-servlet
+  <servlet>
+    <servlet-name>spring</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>spring</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
 Group persistencexml
 Slice persistence.xml
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
@@ -216,10 +228,29 @@ Slice properties
   <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/"/>
   <property name="javax.persistence.jdbc.user" value=""/>
   <property name="javax.persistence.jdbc.password" value=""/>
-Group pending
+Group spring
 Slice spring-beans
 <beans xmlns="http://www.springframework.org/schema/beans"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 </beans>
+Slice spring-mvc
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+</beans>
+Slice defaults-spring-mvc
+  <context:component-scan base-package=""/>
+  <mvc:resources mapping="/resources/**" location="/resources/"/>
+  <mvc:annotation-driven />
+Slice view-resolver
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+  <property name="prefix" value="/WEB-INF/pages/"/>
+  <property name="suffix" value=".jsp"/>
+</bean>
