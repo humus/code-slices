@@ -111,7 +111,7 @@ Slice mvn-mockito
 Slice mvn-springmvc
   <dependency>
     <groupId>org.springframework</groupId>
-    <artifactId>spring-mvc</artifactId>
+    <artifactId>spring-webmvc</artifactId>
     <version>3.2.8.RELEASE</version>
   </dependency>
 Slice mvn-springtest
@@ -163,6 +163,12 @@ Slice hibernate-3.6
     <artifactId>hibernate-entitymanager</artifactId>
     <version>3.6.10.Final</version>
   </dependency>
+Slice sitemesh
+  <dependency>
+    <groupId>opensymphony</groupId>
+    <artifactId>sitemesh</artifactId>
+    <version>2.4.2</version>
+  </dependency>
 Slice tomcat-6-plugin
 <plugin>
   <groupId>org.apache.tomcat.maven</groupId>
@@ -199,6 +205,22 @@ Slice dispatch-servlet
     <servlet-name>spring</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+Slice sitemesh-config
+<filter>
+  <filter-name>sitemesh</filter-name>
+  <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+</filter>
+<filter-mapping>
+  <filter-name>sitemesh</filter-name>
+  <url-pattern>/*</url-pattern>
+</filter-mapping>
+FluentSlice webxml-standard
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
 Group persistencexml
 Slice persistence.xml
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
