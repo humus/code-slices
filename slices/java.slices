@@ -1,0 +1,34 @@
+Group javadefault
+FluentSlice importutils
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.HashSet;
+Group jpa
+FluentSlice jpa-imports
+import javax.persistence.Entity;
+import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.FetchType.EAGER
+import javax.persistence.GeneratedValue
+import javax.persistence.Id
+import javax.persistence.JoinColumn
+import javax.persistence.ManyToOne
+import javax.persistence.SequenceGenerator
+import javax.persistence.Table
+import javax.persistence.Temporal
+import static javax.persistence.FetchType.LAZY
+import static javax.persistence.FetchType.EAGER
+import static javax.persistence.TemporalType.DATE
+import static javax.persistence.TemporalType.TIME
+import static javax.persistence.TemporalType.TIMESTAMP
+FluentSlice mapping_id
+  @Id
+  @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="")
+  @SequenceGenerator(name="", sequenceName="")
+  private Integer id;
+Group mocks
+Slice powermock-Whitebox
+import org.powermock.reflect.Whitebox;

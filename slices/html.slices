@@ -1,0 +1,99 @@
+Group foundation 4
+FluentSlice navtop-bar
+<!--<div class="fixed">-->
+<nav class="top-bar"><!-- data-options="is_hover:false"-->
+  <ul class="title-area">
+      <li class="name"><h1><a href="#"></a></h1></li>
+  </ul>
+</nav>
+<!--</div>-->
+FluentSlice nav.top-bar>section
+  <section class="top-bar-section">
+    <ul class="left">
+      <li class="divider"></li>
+      <li class="active">
+        <a href="">Active Item</a>
+        <li><a href="">Item</a></li>
+      </li>
+    </ul>
+    <ul class="right">
+      <li class="divider hide-for-small"></li>
+    </ul>
+  </section>
+FluentSlice nav.top-bar>section>ul>li.has-dropdown
+  <li class="has-dropdown"><a href="#">dropdown</a>
+    <ul class="dropdown">
+      <li><label>dropdown-label</label></li>
+      <li><a href="#">dropdown-link</a></li>
+    </ul>
+  </li>
+FluentSlice foundation-js
+  <script type="text/javascript" src="js/vendor/custom.modernizr.js"></script>
+  <script type="text/javascript" src="js/vendor/jquery.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.abide.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.alerts.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.clearing.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.cookie.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.dropdown.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.forms.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.interchange.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.joyride.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.magellan.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.orbit.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.placeholder.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.reveal.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.section.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.tooltips.js"></script>
+  <script type="text/javascript" src="js/foundation/foundation.topbar.js"></script>
+Slice foundation-css
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/foundation.min.css">
+FluentSlice paginator
+<ul class="pagination">
+  <li class="arrow unavailable"><a href="">&laquo;</a></li>
+  <li class="current"><a href="">1</a></li>
+  <li><a href="">2</a></li>
+  <li class="unavailable"><a href="">&hellip;</a></li>
+  <li class="arrow"><a href="">&raquo;</a></li>
+</ul>
+FluentSlice side-nav
+<ul class="side-nav">
+  <li class="active">
+    <a href="">Link</a>
+  </li>
+  <li class="divider"></li>
+  <li><a href="">Link</a></li>
+</ul>
+FluentSlice sub-nav
+<dt class="sub-nav">
+  <dt>Label</dt>
+  <dd class="active"><a href="">active</a></dd>
+  <dd><a href=""></a></dd>
+</dt>
+FluentSlice breadcrumbs
+<ul class="breadcrumbs">
+  <a class="unavailable" href="">gray</a>
+  <a class="current" href="">current</a>
+  <a href="">clickable</a>
+</ul>
+FluentSlice buttons
+<a class="tiny button" href="">tiny</a>
+<a class="small button" href="">small</a>
+<a class="success radius" href="">success.radius</a>
+<a class="button disabled" href="">round disabled</a>
+<a class="expand" href="">expand</a>
+<a class="button secondary" href="">expand</a>
+<a class="button success" href="">expand</a>
+<a class="button alert" href="">expand</a>
+<a class="button round" href="">expand</a>
+FluentSlice button-group
+<ul class="button-group">
+  <li><a class="button alert" href="">button 1</a></li>
+  <li><a class="button alert" href="">button 2</a></li>
+</ul>
+FluentSlice button-bar
+<ul class="button-bar">
+  <li><a class="button alert" href="">button 1</a></li>
+  <li><a class="button alert" href="">button 2</a></li>
+</ul>
