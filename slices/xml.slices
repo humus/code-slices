@@ -163,11 +163,17 @@ Slice hibernate-3.6
     <artifactId>hibernate-entitymanager</artifactId>
     <version>3.6.10.Final</version>
   </dependency>
-Slice sitemesh
+Slice sitemesh-dep
   <dependency>
     <groupId>opensymphony</groupId>
     <artifactId>sitemesh</artifactId>
     <version>2.4.2</version>
+  </dependency>
+Slice jstl-dep
+  <dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
   </dependency>
 Slice tomcat-6-plugin
 <plugin>
@@ -181,6 +187,37 @@ Slice tomcat-7-plugin
   <artifactId>tomcat7-maven-plugin</artifactId>
   <version>2.2</version>
 </plugin>
+Slice hibernate-validator-dep
+<dependency>
+  <groupId>javax.validation</groupId>
+  <artifactId>validation-api</artifactId>
+  <version>1.0.0.GA</version>
+</dependency>
+<dependency>
+  <groupId>org.hibernate</groupId>
+  <artifactId>hibernate-validator</artifactId>
+  <version>4.1.0.Final</version>
+</dependency>
+Slice joda-time-dep
+<dependency>
+  <groupId>joda-time</groupId>
+  <artifactId>joda-time</artifactId>
+  <version>1.6.2</version>
+</dependency>
+<dependency>
+  <groupId>joda-time</groupId>
+  <artifactId>joda-time-jsptags</artifactId>
+  <version>1.0.2</version>
+</dependency>
+Slice jboss-repo-hibernate-validator
+<repositories>
+  <repository>
+    <id>org.jboss.repository.release</id>
+    <name>JBoss Maven Release Repository</name>			
+    <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+    <snapshots><enabled>false</enabled></snapshots>			
+  </repository>
+</repositories>
 Group web.xml
 FluentSlice webxml-minimal
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
@@ -276,3 +313,46 @@ Slice view-resolver
   <property name="prefix" value="/WEB-INF/pages/"/>
   <property name="suffix" value=".jsp"/>
 </bean>
+Slice ResourceBundle
+<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+  <property name="basename" value="messages" />
+</bean>
+Slice Validator
+<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+  <property name="validationMessageSource" ref="messageSource"/>
+</bean>
+Group sitemesh
+Slice sitemeshxml
+<sitemesh>
+  <property name="decorators-file" value="/WEB-INF/decorators.xml"/>
+  <excludes file="${decorators-file}"/>
+  <page-parsers>
+    <parser content-type="text/html" class="com.opensymphony.module.sitemesh.parser.HTMLPageParser" />
+  </page-parsers>
+</sitemesh>
+Slice decorator-mappers
+  <decorator-mappers>
+    <mapper class="com.opensymphony.module.sitemesh.mapper.PageDecoratorMapper">
+      <param name="property.1" value="meta.decorator" />
+      <param name="property.2" value="decorator" />
+    </mapper>
+    <mapper class="com.opensymphony.module.sitemesh.mapper.ConfigDecoratorMapper">
+      <param name="config" value="${decorators-file}"/>
+    </mapper>
+  </decorator-mappers>
+Slice decoratorsxml
+<decorators defaultdir="/WEB-INF/decorators">
+  <excludes>
+    <!--<pattern>/fragments/*</pattern>-->
+  </excludes>
+</decorators>
+Slice dec_main
+  <decorator name="main" page="main.jsp">
+    <pattern>/*</pattern>
+  </decorator>
+Slice inline_decorators
+  <decorator name="panel" page="panel.jsp"/>
+  <decorator name="printable" page="printable.jsp"/>
+  <decorator name="black" page="black.jsp"/>
+  <decorator name="nopanelsource" page="nopanelsource.jsp"/>
+  <decorator name="badpanelsource" page="badpanelsource.jsp"/>
