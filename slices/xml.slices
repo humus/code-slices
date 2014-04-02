@@ -226,6 +226,7 @@ FluentSlice webxml-minimal
   version="2.5">
   <display-name></display-name>
 </web-app>
+
 Slice context-loader-listener
   <listener>
     <listener-class>
@@ -356,3 +357,14 @@ Slice inline_decorators
   <decorator name="black" page="black.jsp"/>
   <decorator name="nopanelsource" page="nopanelsource.jsp"/>
   <decorator name="badpanelsource" page="badpanelsource.jsp"/>
+Group pending
+Slice maven-pmd-plugin
+<reporting>
+  <plugins>
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-pmd-plugin</artifactId>
+    <version>3.1</version>
+  </plugin>
+  </plugins>
+</reporting>
