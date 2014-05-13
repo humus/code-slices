@@ -8,11 +8,11 @@ Slice if there are arguments
       #
   fi
 Slice if string is zero length
-  if [ -z "$a_variable"]; then
+  if [ -z "$a_variable" ]; then
     #
   fi
 Slice if string is not zero length
-  if [ -n "$a_variable"]; then
+  if [ -n "$a_variable" ]; then
     #
   fi
 Group custom utility sentences
@@ -22,3 +22,10 @@ Slice export function
   export -f function_name
 Slice use exported function in subshell
   xargs -n 1 -i bash -c 'function_name {}'
+Group variables
+Slice iterate_array
+  for str in "${projects[@]}"; do
+    echo $str
+  done;
+Slice define_array
+  arr_var=(element1 element2 'element 3')
