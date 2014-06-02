@@ -1,0 +1,62 @@
+Group sitemesh
+Slice dec-bootstrap
+<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
+<%@ taglib uri="http://www.opensymphony.com/sitemesh/page" prefix="page" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html><c:set var="cpath">${pageContext.request.contextPath}</c:set>
+  <head>
+    <title>prefix - <decorator:title default="&iexcl;Sin t&iacute;tulo!" /></title>
+    <link rel="stylesheet" type="text/css" href="${cpath}/css/bootstrap.css" />
+    <script language="javascript" type="text/javascript" src="${cpath}/js/bootstrap.js"></script>
+    <decorator:head />
+  </head>
+  <body>
+    <decorator:body />
+  </body>
+</html>
+Slice springmvc-bstrap-text
+<div class="form-group">
+  <label class="com-sm-4 control-label" for="path">Path</label>
+  <div class="col-sm-8">
+    <form:input path="path" placeholder=""/>
+  </div>
+</div>
+Slice springmvc-bstrap-button-offset
+<div class="form-group">
+  <div class="col-sm-offset-4 col-sm-8">
+    <button class="btn btn-default" type="submit">Submit</button>
+  </div>
+</div>
+Slice springmvc-bstrap-checkbox
+<div class="checkbox">
+  <label>
+    <form:checkbox path="path" value=""/>
+    Checkbox-label
+  </label>
+</div>
+Slice springmvc-bstrap-inlinecheck
+<label class="checkbox-inline" for="path">
+  <form:checkbox path="" value=""/>
+</label>
+<label class="checkbox-inline" for="path">
+  <form:checkbox path="" value=""/>
+</label>
+Slice springmvc-bstrap-radio
+<div class="radio">
+  <label>
+    <form:radiobutton path="" value=""/> Radiobutton label
+  </label>
+</div>
+<div class="radio">
+  <label>
+    <form:radiobutton path="" value=""/> Radiobutton label
+  </label>
+</div>
+Slice bstrap-static-control
+<div class="form-group">
+  <label class="col-sm-4 control-label">Email</label>
+  <div class="col-sm-8">
+    <p class="form-control-static">me@myhouse.com</p>
+  </div>
+</div>
