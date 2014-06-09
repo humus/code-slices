@@ -1,0 +1,5 @@
+Group bootstrap
+Slice bootstrap-fix-navbar
+body {
+  padding-top: 60px;
+}

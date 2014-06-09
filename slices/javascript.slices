@@ -1,0 +1,9 @@
+Group bootstrap.js
+Slice eternicode-date
+$('').datepicker({
+  format: 'dd/mm/yyyy',
+  autoclose: true,
+  daysOfWeekDisabled: '0,6',//Domingo,sabado
+  todayHighlight: true,
+  language: 'es'
+});
