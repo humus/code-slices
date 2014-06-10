@@ -196,18 +196,46 @@ Slice jstl-dep
     <artifactId>jstl</artifactId>
     <version>1.2</version>
   </dependency>
-Slice tomcat-6-plugin
+FluentSlice tomcat-6-plugin
 <plugin>
   <groupId>org.apache.tomcat.maven</groupId>
   <artifactId>tomcat6-maven-plugin</artifactId>
   <version>2.2</version>
+  <!--<executions></executions>-->
+  <!--<dependencies>-->
+  <!--</dependencies>-->
 </plugin>
-Slice tomcat-7-plugin
+
+FluentSlice tomcat-7-plugin
 <plugin>
   <groupId>org.apache.tomcat.maven</groupId>
   <artifactId>tomcat7-maven-plugin</artifactId>
   <version>2.2</version>
+  <!--<executions></executions>-->
+  <!--<dependencies>-->
+  <!--</dependencies>-->
 </plugin>
+
+Slice mvn-tomcat-executions
+<executions>
+  <execution>
+    <id>tomcat-run</id>
+    <goals>
+      <goal>run</goal>
+    </goals>
+    <phase>pre-integration-test</phase>
+    <configuration>
+      <fork>true</fork>
+    </configuration>
+  </execution>
+  <execution>
+    <id>tomcat-shutdown</id>
+    <goals>
+      <goal>shutdown</goal>
+    </goals>
+    <phase>post-integration-test</phase>
+  </execution>
+</executions>
 Slice hibernate-validator-dep
 <dependency>
   <groupId>javax.validation</groupId>
