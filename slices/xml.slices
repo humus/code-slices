@@ -262,11 +262,31 @@ Slice jboss-repo-hibernate-validator
 <repositories>
   <repository>
     <id>org.jboss.repository.release</id>
-    <name>JBoss Maven Release Repository</name>			
+    <name>JBoss Maven Release Repository</name>
     <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
-    <snapshots><enabled>false</enabled></snapshots>			
+    <snapshots><enabled>false</enabled></snapshots>
   </repository>
 </repositories>
+Slice failsafeplugin
+<plugin>
+    <artifactId>maven-failsafe-plugin</artifactId>
+    <groupId>org.apache.maven.plugins</groupId>
+    <version>2.17</version>
+    <executions>
+        <execution>
+            <id>integration-test</id>
+            <goals>
+                <goal>integration-test</goal>
+            </goals>
+        </execution>
+        <execution>
+            <id>verify</id>
+            <goals>
+                <goal>verify</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 Group web.xml
 FluentSlice webxml-minimal
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
@@ -317,7 +337,7 @@ Slice tomcat-resource-ref
 </resource-ref>
 Slice tomcat-contextxml
 <Context>
-    <Resource name="jdbc/appdb" auth="Container" type="javax.sql.DataSource" maxActive="10" maxIdle="5" maxWait="1000" username="postgres" password="sergtsop" driverClassName="org.postgresql.Driver" url="jdbc:postgresql://localhost/appdb">i
+    <Resource name="jdbc/appdb" auth="Container" type="javax.sql.DataSource" maxActive="10" maxIdle="5" maxWait="1000" username="postgres" password="sergtsop" driverClassName="org.postgresql.Driver" url="jdbc:postgresql://localhost/appdb">
     </Resource>
 </Context>
 Group persistencexml
@@ -360,6 +380,11 @@ FluentSlice spring-beans
     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
     http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
     http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-data/jpa.xsd">
+</beans>
+Slice spring-beans-basic
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 </beans>
 Slice spring-mvc
 <beans xmlns="http://www.springframework.org/schema/beans"

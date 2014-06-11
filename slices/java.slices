@@ -25,10 +25,22 @@ import static javax.persistence.TemporalType.DATE
 import static javax.persistence.TemporalType.TIME
 import static javax.persistence.TemporalType.TIMESTAMP
 FluentSlice mapping_id
-  @Id
-  @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="")
-  @SequenceGenerator(name="", sequenceName="")
-  private Integer id;
+@Id
+@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="")
+@SequenceGenerator(name="", sequenceName="")
+private Integer id;
 Group mocks
 Slice powermock-Whitebox
 import org.powermock.reflect.Whitebox;
+Group tests
+FluentSlice selenide-statics
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.confirm;
+import static com.codeborne.selenide.Selenide.dismiss;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Configuration.baseUrl;
+import static com.codeborne.selenide.Configuration.timeout;
+
