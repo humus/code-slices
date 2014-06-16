@@ -417,6 +417,22 @@ Slice ResourceBundleMessageSource
 <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
   <property name="basename" value="messages" />
 </bean>
+Slice lookup-datasource
+<jee:jndi-lookup lookup-on-startup="true" id="dataSource" jndi-name="jdbc/appdb" resource-ref="true"/>
+
+Slice thymeleaf-default
+<bean class="org.thymeleaf.spring3.view.ThymeleafViewResolver">
+    <property ref="templateEngine" name="templateEngine"/>
+</bean>
+<bean id="templateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+  <property name="prefix" value="/WEB-INF/templates/"/>
+  <property name="suffix" value=".html"/>
+  <property name="templateMode" value="HTML5"/>
+</bean>
+<bean id="templateEngine" class="org.thymeleaf.spring3.SpringTemplateEngine">
+    <property ref="templateResolver" name="templateResolver"/>
+</bean>
+
 Group sitemesh
 Slice sitemeshxml
 <sitemesh>
