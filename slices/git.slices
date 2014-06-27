@@ -1,0 +1,16 @@
+FluentSlice delete remote-branch
+git branch -d \
+    branch-tracking-remote
+git push origin \
+    :remote-branch
+
+FluentSlice cherry-pick single commit
+git cherry-pick \
+    commit-ref
+
+FluentSlice cherry-pick range of commits, inclusive
+git cherry-pick \
+    ancient-commit-ref^..new-commit-ref
+
+Group no-group
+# vim: ft=sh.slices
