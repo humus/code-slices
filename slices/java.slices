@@ -29,6 +29,18 @@ FluentSlice mapping_id
 @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="")
 @SequenceGenerator(name="", sequenceName="")
 private Integer id;
+Group rest
+FluentSlice webclient
+//org.apache.cxf.jaxrs.client.WebClient
+WebClient webClient = new WebClient("http://localhost:8080/context/services/");
+webClient.type("application/json").acccept("application/xml");
+webClient.path("/resource");
+try {
+  webClient.post(body, response.class);
+} catch (org.apache.cxf.jaxrs.client.ServerWebApplicationException e) {
+  throw e;
+}
+
 Group mocks
 Slice powermock-Whitebox
 import org.powermock.reflect.Whitebox;

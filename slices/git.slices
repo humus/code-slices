@@ -10,7 +10,13 @@ git cherry-pick \
 
 FluentSlice cherry-pick range of commits, inclusive
 git cherry-pick \
-    ancient-commit-ref^..new-commit-ref
+    ancient-commit-ref~1..new-commit-ref
+
+FluentSlice create local branch replicate to remote
+git checkout -b \
+    branch_to_remote
+git push -u \
+    branch_to_remote branch_to_remote
 
 Group no-group
 # vim: ft=sh.slices
