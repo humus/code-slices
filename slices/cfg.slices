@@ -1,0 +1,20 @@
+Group hg
+Slice hg.ui
+[ui]
+username =
+
+Slice Extensions
+[extensions]
+record =
+mq =
+color =
+graphlog =
+histedit =
+rebase =
+bisect =
+strip =
+extdiff =
+
+Slice aliases
+[alias]
+l = !$HOME/.pretty_hg_log $@
