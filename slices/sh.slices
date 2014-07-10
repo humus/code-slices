@@ -57,3 +57,13 @@ LIGHT_BLUE="\033[94m"
 LIGHT_MAGENTA="\033[95m"
 LIGHT_CYAN="\033[96m"
 WHITE="\033[97m"
+
+Group grep sed awk
+FluentSlice grep with context
+$N=5
+grep -"$N"
+grep -C $N
+grep -A $N -B $N
+
+FluentSlice awk print from matching to end
+awk '/search_pattern/,0' filename
