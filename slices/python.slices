@@ -1,0 +1,12 @@
+Group Django
+FluentSlice import django-view
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+
+Slice render
+render(request, template, model) #model inline: {'foo': bar, }
+
+Slice test imports
+from django.test import LiveServerTestCase
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
