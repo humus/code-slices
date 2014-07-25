@@ -1,0 +1,9 @@
+Group default
+Slice list-users
+\du
+Slice list-databases
+\list
+Slice connect to database
+\c sampledb
+Group pending
+# vim: set ft=sql
