@@ -432,6 +432,23 @@ Slice thymeleaf-default
 <bean id="templateEngine" class="org.thymeleaf.spring3.SpringTemplateEngine">
     <property ref="templateResolver" name="templateResolver"/>
 </bean>
+Slice batch:job
+<batch:job id="reportJob">
+  <batch:step id="step1">
+  <batch:tasklet>
+    <batch:chunk reader="xmlItemReader" writer="simpleItemWriter" commit-interval="1">
+    </batch:chunk>
+  </batch:tasklet>
+  </batch:step>
+</batch:job>
+Slice mongo:mongo configuration
+  <mongo:mongo host="localhost" port="27017">
+    <mongo:options connections-per-host="20"
+      threads-allowed-to-block-for-connection-multiplier="5"
+      connect-timeout="1000" max-wait-time="1500" auto-connect-retry="true"
+      socket-keep-alive="true" socket-timeout="1500" slave-ok="true"
+      write-number="1" write-timeout="0" write-fsync="true" />
+  </mongo:mongo>
 
 Group sitemesh
 Slice sitemeshxml
