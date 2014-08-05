@@ -16,7 +16,11 @@ FluentSlice create local branch replicate to remote
 git checkout -b \
     branch_to_remote
 git push -u \
-    branch_to_remote branch_to_remote
+    origin/branch_to_remote branch_to_remote
 
+FluentSlice track remote branch in existing local
+git branch -u origin/remote local
+#or as alternative
+git branch -u origin/master
 Group no-group
 # vim: ft=sh.slices

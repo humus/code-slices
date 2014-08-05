@@ -1,0 +1,4 @@
+Slice skip integration-tests
+mvn install -DskipITs=true
+
+# vim: set ft=sh
