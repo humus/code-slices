@@ -13,6 +13,11 @@ Group vimrc
   nnoremap ( <C-w><lt>
   nnoremap ) <C-w>>
   nnoremap g<C-p> :CtrlPChangeAll<cr>
+  cnoremap <C-p> <Up>
+  cnoremap <C-n> <Down>
+  cnoremap g' '<
+  cnoremap <C-g>' '>
+  set history=200
 Group pending
 FluentSlice save-rest-view
   let view = winsaveview()
