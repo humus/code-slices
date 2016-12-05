@@ -56,3 +56,35 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Configuration.timeout;
 
+Group spring
+Slice datasource
+@Bean
+public DriverManagerDataSource datasource() {
+    DriverManagerDataSource dataSource = new DriverManagerDataSource();
+    dataSource.setDriverClassName("org.postgresql.Driver");
+    dataSource.setUrl("${database.url}");
+    dataSource.setUsername("${database.username}");
+    dataSource.setPassword("${database.password}");
+
+    return dataSource;
+}
+
+Slice jdbcdaosupport
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+
+Slice springjdbcdao
+{
+    public int countOfActorsByFirstName(String firstName) {
+        NamedParameterJdbcTemplate
+        String sql = "select count(*) from T_ACTOR where first_name = :first_name";
+        SqlParameterSource namedParameters = new MapSqlParameterSource("first_name", firstName);
+        return this.namedParameterJdbcTemplate.queryForObject(sql, namedParameters, Integer.class);
+    }
+}
+
+Slice beanpropertysqlparametersource
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+new BeanPropertySqlParameterSource(obj_source);
+

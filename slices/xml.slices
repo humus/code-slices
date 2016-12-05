@@ -267,6 +267,12 @@ Slice jboss-repo-hibernate-validator
     <snapshots><enabled>false</enabled></snapshots>
   </repository>
 </repositories>
+Slice spring-jdbc
+<dependency>
+    <artifactId>spring-jdbc</artifactId>
+    <groupId>org.springframework</groupId>
+    <version>${spring.version}</version>
+</dependency>
 Slice failsafeplugin
 <plugin>
     <artifactId>maven-failsafe-plugin</artifactId>
